@@ -19,7 +19,7 @@ I looked at while working on this.
 
 * clone the repo locally `git clone https://github.com/dforth/electron-example.git`
 * install dependencies `npm install`
-*
+* TBD
 
 ## License
 
