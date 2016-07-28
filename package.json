@@ -1,6 +1,6 @@
 {
   "name": "electron-example",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Electron example application. A standard TO-DO app built with Electron, React, and Redux. Based on the electron-react-boilerplate.",
   "main": "main.js",
   "scripts": {
