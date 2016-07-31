@@ -1,4 +1,4 @@
-import { ADD_TASK, REMOVE_TASK, TOGGLE_TASK, SET_VISIBILITY_FILTER } from '../../app/actions/todo';
+import { ADD_TASK, REMOVE_TASK, TOGGLE_TASK, COMPLETE_ALL } from '../../app/actions/tasks';
 
 
 const task = function(state, action) {
@@ -26,26 +26,19 @@ const task = function(state, action) {
         });
       }
 
+    case COMPLETE_ALL:
+
+      return {
+        id: state.id,
+        name: state.name,
+        completed: true
+      }
+
     default:
 
       return state;
   }
 };
-
-const visibilityFilter = function(state = "SHOW_UNCOMPLETED", action) {
-
-  switch (action.type) {
-
-    case SET_VISIBILITY_FILTER:
-
-      // TODO: validate that new filter is possible filter
-      return action.filter
-
-    default:
-
-      return state;
-  }
-}
 
 const tasks = function(state = [], action) {
 
@@ -58,9 +51,20 @@ const tasks = function(state = [], action) {
         task(undefined, action)
       ];
 
+    case REMOVE_TASK:
+
+      return state.filter(t => {
+
+        return (t.id != action.id);
+      });
+
     case TOGGLE_TASK:
 
-     return state.map(t => task(t, action));
+      return state.map(t => task(t, action));
+
+    case COMPLETE_ALL:
+
+      return state.map(t => task(t, action));
 
     default:
 
@@ -68,12 +72,4 @@ const tasks = function(state = [], action) {
   }
 }
 
-const todo = function(state = {}, action) {
-
-  return {
-    tasks: tasks(state.tasks, action),
-    visibility: visibilityFilter(state.visibility, action)
-  }
-}
-
-export default todo;
+export default tasks;
