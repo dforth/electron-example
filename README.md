@@ -2,6 +2,8 @@
 
 Simple Electron example application.
 
+*NOTE: This is under active development, and is not yet far enough along to be used as an example*
+
 
 
 ## References
