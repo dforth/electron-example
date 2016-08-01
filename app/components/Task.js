@@ -4,7 +4,7 @@ import styles from './Task.css';
 
 class Task extends Component {
   static propTypes = {
-    task: PropTypes.number.isRequired
+    task: PropTypes.object.isRequired
   };
 
   render() {
@@ -19,4 +19,4 @@ class Task extends Component {
   }
 }
 
-export default Tasks;
+export default Task;

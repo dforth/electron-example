@@ -3,7 +3,7 @@ import Home from '../components/Home';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as TaskActions from '../actions/tasks';
-import * as visibilityFilterActions from '../actions/visibilityFilter';
+import * as VisibilityFilterActions from '../actions/visibilityFilter';
 
 function mapStateToProps(state) {
   return {
@@ -13,15 +13,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(CounterActions, dispatch);
+
+  const actions = Object.assign(TaskActions, VisibilityFilterActions);
+  return bindActionCreators(actions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
-
-export default class HomePage extends Component {
-  render() {
-    return (
-      <Home/>
-    );
-  }
-}

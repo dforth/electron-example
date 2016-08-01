@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import styles from './ControlBar.css';
 
 
-class Task extends Component {
+class ControlBar extends Component {
   static propTypes = {
-    visibilityFilter: PropTypes.number.isRequired
+    visibilityFilter: PropTypes.string.isRequired
   };
 
   render() {
@@ -13,10 +13,10 @@ class Task extends Component {
 
     return (
       <div className={styles.ControlBar}>
-        Control Bar
+        VisibilityFilter: {visibilityFilter}
       </div>
     );
   }
 }
 
-export default Tasks;
+export default ControlBar;

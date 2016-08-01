@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import Task from './Task';
-import styles from './Counter.css';
+import styles from './Tasks.css';
 
 
 class Tasks extends Component {
   static propTypes = {
-    tasks: PropTypes.number.isRequired
+    tasks: PropTypes.array.isRequired
   };
 
   render() {
@@ -16,7 +16,7 @@ class Tasks extends Component {
       <div>
         <ul>
           { tasks.map(task =>
-            <task task={task}/>
+            <Task key={task.id} task={task} />
           )}
         </ul>
       </div>

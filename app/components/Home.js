@@ -1,18 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import styles from './Home.css';
 import Tasks from './Tasks';
+import ControlBar from './ControlBar';
 
 
-export default class Home extends Component {
+class Home extends Component {
   static propTypes = {
-    tasks: PropTypes.number.isRequired,
-    visibilityFilter: PropTypes.number.isRequired
+    tasks: PropTypes.array.isRequired,
+    visibilityFilter: PropTypes.string.isRequired
   };
 
   render() {
 
+    //const { tasks } = this.props;
     const { tasks, visibilityFilter } = this.props;
+    //var tasks = [];
+    //var visibilityFilter = "";
 
     return (
       <div>
@@ -25,3 +29,5 @@ export default class Home extends Component {
     );
   }
 }
+
+export default Home;
