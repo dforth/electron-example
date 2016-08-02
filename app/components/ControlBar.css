@@ -1,0 +1,19 @@
+
+.ControlBar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.Basic {
+  flex-basis: auto;
+}
+
+.AddTask {
+  flex-basis: 50%;
+}
+
+.Filter {
+  flex-basis: 30%;
+}

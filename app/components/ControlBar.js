@@ -46,20 +46,26 @@ class ControlBar extends Component {
 
     return (
       <div className={styles.ControlBar}>
-        <button className={styles.btn} onClick={() => completeAll()}>
-          <i className="fa fa-check"></i> All
-        </button>
-        <input type="text" ref={node => {this.input = node;}} />
-        <button className={styles.btn} onClick={() => this.handleAddClick()}>
-          Add
-        </button>
-        <span>
-          Show <select ref={node => {this.select = node;}} value={visibilityFilter} onChange={(event) => this.handleVisibilityFilterClick(event)}>
-            <option value={SHOW_ALL}>All</option>
-            <option value={SHOW_COMPLETED}>Completed</option>
-            <option value={SHOW_UNCOMPLETED}>Uncompleted</option>
-          </select>
-        </span>
+        <div className={styles.Basic}>
+          <button onClick={() => completeAll()}>
+            <i className="fa fa-check"></i> All
+          </button>
+        </div>
+        <div className={styles.AddTask}>
+          <input type="text" ref={node => {this.input = node;}} />
+          <button onClick={() => this.handleAddClick()}>
+            Add
+          </button>
+        </div>
+        <div className={styles.Filter}>
+          <span>
+            Show <select ref={node => {this.select = node;}} value={visibilityFilter} onChange={(event) => this.handleVisibilityFilterClick(event)}>
+              <option value={SHOW_ALL}>All</option>
+              <option value={SHOW_COMPLETED}>Completed</option>
+              <option value={SHOW_UNCOMPLETED}>Uncompleted</option>
+            </select>
+          </span>
+        </div>
       </div>
     );
   }

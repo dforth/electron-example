@@ -30,9 +30,9 @@ class Tasks extends Component {
     const { tasks, visibilityFilter, removeTask, toggleTask } = this.props;
 
     var visibleTasks = getVisibleTasks(tasks, visibilityFilter);
-    
+
     return (
-      <div>
+      <div className={styles.Tasks}>
         <ul>
           { visibleTasks.map(task =>
             <Task

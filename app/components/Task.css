@@ -1,10 +1,20 @@
 
 
-.task {
+.Task {
   color: white;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .checked {
   color: gray;
   text-decoration: line-through;
+}
+
+.checked > div {
+  flex:1;
+
 }

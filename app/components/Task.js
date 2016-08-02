@@ -35,13 +35,19 @@ class Task extends Component {
 
     return (
       <li>
-          <button className={styles.btn} onClick={() => toggleTask(task.id)}>
-            {checkButtonContent}
-          </button>
-          <span className={taskClasses}>{task.name}</span>
-          <button className={styles.btn} onClick={() => removeTask(task.id)}>
-            <i className="fa fa-remove"></i>
-          </button>
+        <div className={styles.Task}>
+          <div>
+            <button className={styles.btn} onClick={() => toggleTask(task.id)}>
+              {checkButtonContent}
+            </button>
+          </div>
+          <div className={taskClasses}>{task.name}</div>
+          <div>
+            <button className={styles.btn} onClick={() => removeTask(task.id)}>
+              <i className="fa fa-remove"></i>
+            </button>
+          </div>
+        </div>
       </li>
     );
   }
