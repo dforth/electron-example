@@ -166,7 +166,7 @@ describe('reducers', () => {
       expect(tasks(initialState, action)).to.deep.equal(expectedState);
     });
 
-    it('should hangle TOGGLE_TASK to false', () => {
+    it('should handle TOGGLE_TASK to false', () => {
 
       let initialState = [{
           id:0,

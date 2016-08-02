@@ -7,16 +7,7 @@ import routes from './routes';
 import configureStore from './store/configureStore';
 import './app.global.css';
 
-const store = configureStore({
-  tasks: [{
-    id:0,
-    name: 'task one',
-    completed: false
-},{
-    id:1,
-    name: 'task two',
-    completed: false
-}], visibilityFilter: "TEST"});
+const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
 
 render(

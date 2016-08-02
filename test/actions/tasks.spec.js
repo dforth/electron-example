@@ -7,15 +7,25 @@ import * as actions from '../../app/actions/tasks';
 describe('actions', () => {
 
   it('addTask should create ADD_TASK action', () => {
-    expect(actions.addTask()).to.deep.equal({ type: actions.ADD_TASK });
+    expect(actions.addTask(0, 'test')).to.deep.equal({
+      type: actions.ADD_TASK,
+      id: 0,
+      name: 'test'
+    });
   });
 
   it('removeTask should create REMOVE_TASK action', () => {
-    expect(actions.removeTask()).to.deep.equal({ type: actions.REMOVE_TASK });
+    expect(actions.removeTask(0)).to.deep.equal({
+      type: actions.REMOVE_TASK,
+      id: 0
+    });
   });
 
   it('toggleTask should create TOGGLE_TASK action', () => {
-    expect(actions.toggleTask()).to.deep.equal({ type: actions.TOGGLE_TASK });
+    expect(actions.toggleTask(0)).to.deep.equal({
+      type: actions.TOGGLE_TASK,
+      id: 0
+    });
   });
 
   it('completeAll should create COMPLETE_ALL action', () => {

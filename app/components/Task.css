@@ -1,0 +1,10 @@
+
+
+.task {
+  color: white;
+}
+
+.checked {
+  color: gray;
+  text-decoration: line-through;
+}
