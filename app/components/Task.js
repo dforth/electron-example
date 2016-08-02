@@ -41,7 +41,7 @@ class Task extends Component {
               {checkButtonContent}
             </button>
           </div>
-          <div className={taskClasses}>{task.name}</div>
+          <div className={taskClasses} onClick={() => toggleTask(task.id)}>{task.name}</div>
           <div>
             <button className={styles.btn} onClick={() => removeTask(task.id)}>
               <i className="fa fa-remove"></i>

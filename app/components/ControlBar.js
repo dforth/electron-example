@@ -31,13 +31,18 @@ class ControlBar extends Component {
     this.props.addTask(newId, value);
   }
 
+  handleAddKeyPress(event) {
+    if (event.key === 'Enter') {
+
+      this.handleAddClick();
+    }
+  }
+
   handleVisibilityFilterClick(event) {
 
     event.preventDefault();
 
     this.props.setVisibilityFilter(this.select.value);
-
-
   }
 
   render() {
@@ -52,7 +57,7 @@ class ControlBar extends Component {
           </button>
         </div>
         <div className={styles.AddTask}>
-          <input type="text" ref={node => {this.input = node;}} />
+          <input type="text" ref={node => {this.input = node;}} onKeyUp={(event) => this.handleAddKeyPress(event)} />
           <button onClick={() => this.handleAddClick()}>
             Add
           </button>
