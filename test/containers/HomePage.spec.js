@@ -2,8 +2,13 @@ import { expect } from 'chai';
 import React from 'react';
 import {
   renderIntoDocument,
+  findAllInRenderedTree,
   scryRenderedDOMComponentsWithTag,
+  findRenderedDOMComponentsWithTag,
+  findRenderedComponentWithType,
+  scryRenderedComponentWithType,
   findRenderedDOMComponentWithClass,
+  scryRenderedDOMComponentWithClass,
   Simulate
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
@@ -21,8 +26,9 @@ function setup(initialState) {
   return {
     app,
     buttons: scryRenderedDOMComponentsWithTag(app, 'button').map(button => button),
-    input: scryRenderedDOMComponentsWithTag(app, 'input').map(input => input),
+    inputs: scryRenderedDOMComponentsWithTag(app, 'input').map(input => input),
     taskList: scryRenderedDOMComponentsWithTag(app, 'ul').map(ul => ul),
+    selects: scryRenderedDOMComponentsWithTag(app, 'select').map(select => select),
     content: findRenderedDOMComponentWithClass(app, 'container')
   };
 }
@@ -30,6 +36,7 @@ function setup(initialState) {
 
 describe('containers', () => {
   describe('HomePage', () => {
+
     it('should display initial content', () => {
       const { content } = setup();
       expect(content.textContent).to.not.be.empty;
