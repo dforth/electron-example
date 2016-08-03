@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import styles from './About.css';
+import styles from './Info.css';
 
 
-export default class About extends Component {
+export default class Info extends Component {
   render() {
     return (
       <div className="container">
@@ -12,9 +12,12 @@ export default class About extends Component {
             <i className="fa fa-arrow-left fa-3x" />
           </Link>
         </div>
-        <div className={styles.aboutContent}>
-          <h2>About</h2>
-          <p>This is a test</p>
+        <div className={styles.infoContent}>
+          <h2>Info</h2>
+          <p>
+            TBD Usefull text here.
+            
+          </p>
         </div>
       </div>
     );

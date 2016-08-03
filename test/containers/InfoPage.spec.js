@@ -7,7 +7,7 @@ import {
   Simulate
 } from 'react-addons-test-utils';
 import { Provider } from 'react-redux';
-import AboutPage from '../../app/containers/AboutPage';
+import InfoPage from '../../app/containers/InfoPage';
 import configureStore from '../../app/store/configureStore';
 
 
@@ -15,7 +15,7 @@ function setup(initialState) {
   const store = configureStore(initialState);
   const app = renderIntoDocument(
     <Provider store={store}>
-      <AboutPage />
+      <InfoPage />
     </Provider>
   );
 
@@ -27,7 +27,7 @@ function setup(initialState) {
 }
 
 describe('containers', () => {
-  describe('AboutPage', () => {
+  describe('InfoPage', () => {
     it('should display something', () => {
       const { content } = setup();
       expect(content.textContent).to.not.be.empty;
