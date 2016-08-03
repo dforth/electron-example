@@ -67,9 +67,9 @@ app.on('ready', async () => {
 
   if (process.platform === 'darwin') {
     template = [{
-      label: 'Electron',
+      label: 'ElectronExample',
       submenu: [{
-        label: 'About ElectronReact',
+        label: 'About Electron Example',
         selector: 'orderFrontStandardAboutPanel:'
       }, {
         type: 'separator'
@@ -79,7 +79,7 @@ app.on('ready', async () => {
       }, {
         type: 'separator'
       }, {
-        label: 'Hide ElectronReact',
+        label: 'Hide Electron Example',
         accelerator: 'Command+H',
         selector: 'hide:'
       }, {
@@ -173,6 +173,12 @@ app.on('ready', async () => {
     }, {
       label: 'Help',
       submenu: [{
+        label: 'Github Project',
+        click() {
+          shell.openExternal('https://github.com/dforth/electron-example');
+        }
+      },
+      {
         label: 'Learn More',
         click() {
           shell.openExternal('http://electron.atom.io');
