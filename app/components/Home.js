@@ -45,7 +45,7 @@ class Home extends Component {
     return (
       <div>
         <div className="container">
-          <h1>Todo Example <small><Link to="/info">Info</Link></small></h1>
+          <h2>Todo Example <small><Link to="/info">Info</Link></small></h2>
           <ControlBar
 
             visibilityFilter={visibilityFilter}

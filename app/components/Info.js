@@ -9,14 +9,14 @@ export default class Info extends Component {
       <div className="container">
         <div className={styles.backButton}>
           <Link to="/">
-            <i className="fa fa-arrow-left fa-3x" />
+            <i className="fa fa-arrow-left fa-2x" />
           </Link>
         </div>
+        <h2>Info</h2>
         <div className={styles.infoContent}>
-          <h2>Info</h2>
           <p>
             TBD Usefull text here.
-            
+
           </p>
         </div>
       </div>
