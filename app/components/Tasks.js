@@ -6,7 +6,7 @@ import { SHOW_ALL, SHOW_COMPLETED, SHOW_UNCOMPLETED } from '../../app/actions/vi
 
 
 const getVisibleTasks = (tasks, filter) => {
-  console.log('here');
+  
   switch(filter) {
     case SHOW_ALL:
       return tasks;

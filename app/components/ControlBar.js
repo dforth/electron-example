@@ -26,7 +26,6 @@ class ControlBar extends Component {
 
     this.props.incrementId();
     var newId = this.props.nextId;
-    console.log("newId: ", newId);
 
     this.props.addTask(newId, value);
   }
