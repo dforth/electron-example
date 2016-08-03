@@ -142,7 +142,7 @@ describe('reducers', () => {
     });
 
 
-    it('should hangle TOGGLE_TASK to true', () => {
+    it('should handle TOGGLE_TASK to true', () => {
 
       let initialState = [{
           id:0,
@@ -163,7 +163,11 @@ describe('reducers', () => {
           completed: true
       }];
 
-      expect(tasks(initialState, action)).to.deep.equal(expectedState);
+      const result = tasks(initialState, action);
+      expect(result[0].id).to.equal(initialState[0].id);
+      expect(result[0].name).to.equal(initialState[0].name);
+      expect(result[0].completed).to.be.true;
+      expect(result[0].completedOn).not.to.be.empty;
     });
 
     it('should handle TOGGLE_TASK to false', () => {
@@ -175,7 +179,8 @@ describe('reducers', () => {
       },{
           id:1,
           name: 'task two',
-          completed: true
+          completed: true,
+          completedOn: (new Date()).getTime()
       }];
       deepFreeze(initialState);
 
@@ -185,20 +190,14 @@ describe('reducers', () => {
       };
       deepFreeze(action);
 
-      let expectedState = [{
-          id:0,
-          name: 'task one',
-          completed: false
-      },{
-          id:1,
-          name: 'task two',
-          completed: false
-      }];
-
-      expect(tasks(initialState, action)).to.deep.equal(expectedState);
+      const result = tasks(initialState, action);
+      expect(result[1].id).to.equal(initialState[1].id);
+      expect(result[1].name).to.equal(initialState[1].name);
+      expect(result[1].completed).to.be.false;
+      expect(result[1].completedOn).to.equal(initialState[1].completedOn);
     });
 
-    it('should hangle COMPLETE_ALL', () => {
+    it('should handle COMPLETE_ALL', () => {
 
       let initialState = [{
           id:0,
@@ -216,17 +215,16 @@ describe('reducers', () => {
       };
       deepFreeze(action);
 
-      let expectedState = [{
-          id:0,
-          name: 'task one',
-          completed: true
-        },{
-          id:0,
-          name: 'task one',
-          completed: true
-      }];
+      const result = tasks(initialState, action);
+      expect(result[0].id).to.equal(initialState[0].id);
+      expect(result[0].name).to.equal(initialState[0].name);
+      expect(result[0].completed).to.be.true;
+      expect(result[0].completedOn).not.to.be.empty;
 
-      expect(tasks(initialState, action)).to.deep.equal(expectedState);
+      expect(result[1].id).to.equal(initialState[1].id);
+      expect(result[1].name).to.equal(initialState[1].name);
+      expect(result[1].completed).to.be.true;
+      expect(result[1].completedOn).not.to.be.empty;
     });
 
   });

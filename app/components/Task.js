@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import styles from './Task.css';
+import Moment from 'moment';
 
 
 class Task extends Component {
@@ -32,6 +33,10 @@ class Task extends Component {
       taskClasses = styles.checked;
     }
 
+    let formatedDate = undefined;
+    if (task.completed) {
+      formatedDate = Moment(task.completedOn).format('YYYY-MM-DD HH:m:s');
+    }
 
     return (
       <li>
@@ -41,7 +46,7 @@ class Task extends Component {
               {checkButtonContent}
             </button>
           </div>
-          <div className={taskClasses} onClick={() => toggleTask(task.id)}>{task.name}</div>
+          <div className={taskClasses} onClick={() => toggleTask(task.id)}>{task.name} {formatedDate}</div>
           <div>
             <button className={styles.btn} onClick={() => removeTask(task.id)}>
               <i className="fa fa-remove"></i>

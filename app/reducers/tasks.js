@@ -21,9 +21,19 @@ const task = function(state, action) {
 
       } else {
 
-        return Object.assign({}, state, {
-          completed: !state.completed
-        });
+        if(state.completed) {
+
+          return Object.assign({}, state, {
+            completed: false
+          });
+
+        } else {
+
+          return Object.assign({}, state, {
+            completed: true,
+            completedOn: (new Date()).getTime()
+          });
+        }
       }
 
     case COMPLETE_ALL:
@@ -31,7 +41,8 @@ const task = function(state, action) {
       return {
         id: state.id,
         name: state.name,
-        completed: true
+        completed: true,
+        completedOn: (new Date()).getTime()
       }
 
     default:
