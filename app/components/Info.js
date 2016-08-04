@@ -12,7 +12,10 @@ export default class Info extends Component {
             <i className="fa fa-arrow-left fa-2x" />
           </Link>
         </div>
-        <h2>Info</h2>
+        <div className="title">
+          <h2>Info</h2>  
+        </div>
+
         <div className={styles.infoContent}>
           <p>
             TBD Usefull text here.
