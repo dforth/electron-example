@@ -4,8 +4,6 @@ Simple Electron example application.
 
 *NOTE: This is under active development, and is not yet far enough along to be used as an example*
 
-
-
 ## References
 
 There are some amazing resources that are just a quick search away.  Here are some of the things
@@ -21,7 +19,13 @@ I looked at while working on this.
 
 * clone the repo locally `git clone https://github.com/dforth/electron-example.git`
 * install dependencies `npm install`
+* see the docs for the electron-react-boilerplate as well. 
 * TBD
+
+
+## General Notes
+
+* One downside to Electron Apps is the size of the generated 'executables'.
 
 ## License
 
