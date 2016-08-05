@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import tasks from '../../app/reducers/tasks';
-import { ADD_TASK, REMOVE_TASK, TOGGLE_TASK, COMPLETE_ALL } from '../../app/actions/tasks';
+import { ADD_TASK, REMOVE_TASK, TOGGLE_TASK, COMPLETE_ALL, SET_TASKS } from '../../app/actions/tasks';
 import deepFreeze from 'deep-freeze';
 
 
@@ -225,6 +225,54 @@ describe('reducers', () => {
       expect(result[1].name).to.equal(initialState[1].name);
       expect(result[1].completed).to.be.true;
       expect(result[1].completedOn).not.to.be.empty;
+    });
+
+    it('should handle SET_TASKS', () => {
+
+      let initialState = [{
+          id:0,
+          name: 'task one',
+          completed: false
+      }];
+      deepFreeze(initialState);
+
+      let action = {
+        type: SET_TASKS,
+        tasks: [{
+          id:5,
+          name: 'task two',
+          completed: false
+        }]
+      };
+      deepFreeze(action);
+
+      let expectedState = [{
+        id:5,
+        name: 'task two',
+        completed: false
+      }];
+
+      expect(tasks(initialState, action)).to.deep.equal(expectedState);
+    });
+
+    it('should handle SET_TASKS with empty tasks', () => {
+
+      let initialState = [{
+          id:0,
+          name: 'task one',
+          completed: false
+      }];
+      deepFreeze(initialState);
+
+      let action = {
+        type: SET_TASKS,
+        tasks: []
+      };
+      deepFreeze(action);
+
+      let expectedState = [];
+
+      expect(tasks(initialState, action)).to.deep.equal(expectedState);
     });
 
   });

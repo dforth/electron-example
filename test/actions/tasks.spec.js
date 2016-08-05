@@ -32,4 +32,22 @@ describe('actions', () => {
     expect(actions.completeAll()).to.deep.equal({ type: actions.COMPLETE_ALL });
   });
 
+  it('setTasls should create SET_TASKS action', () => {
+
+    const tasks = [{
+      id:0,
+      name: "test",
+      completed: false
+    }];
+
+    expect(actions.setTasks(tasks)).to.deep.equal({
+      type: actions.SET_TASKS,
+      tasks: [{
+        id:0,
+        name: "test",
+        completed: false
+      }]
+    });
+  });
+
 });

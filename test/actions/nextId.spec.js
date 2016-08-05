@@ -11,4 +11,12 @@ describe('actions', () => {
       type: actions.INCREMENT_ID
     });
   });
+
+  it('setNextId should create SET_NEXT_ID action', () => {
+    expect(actions.setNextId(8)).to.deep.equal({
+      type: actions.SET_NEXT_ID,
+      value: 8
+    });
+  });
+
 });

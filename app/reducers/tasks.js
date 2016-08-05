@@ -1,4 +1,4 @@
-import { ADD_TASK, REMOVE_TASK, TOGGLE_TASK, COMPLETE_ALL } from '../../app/actions/tasks';
+import { ADD_TASK, REMOVE_TASK, TOGGLE_TASK, COMPLETE_ALL, SET_TASKS } from '../../app/actions/tasks';
 
 
 const task = function(state, action) {
@@ -43,7 +43,7 @@ const task = function(state, action) {
         name: state.name,
         completed: true,
         completedOn: (new Date()).getTime()
-      }
+      };
 
     default:
 
@@ -76,6 +76,11 @@ const tasks = function(state = [], action) {
     case COMPLETE_ALL:
 
       return state.map(t => task(t, action));
+
+    case SET_TASKS:
+
+      // TODO: is this correct?
+      return [...(action.tasks)];
 
     default:
 

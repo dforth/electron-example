@@ -1,8 +1,10 @@
-import { app, BrowserWindow, Menu, shell } from 'electron';
+import { app, BrowserWindow, Menu, shell, dialog } from 'electron';
 
 let menu;
 let template;
 let mainWindow = null;
+
+let defaultFilePath = null;
 
 
 if (process.env.NODE_ENV === 'development') {
@@ -13,7 +15,6 @@ if (process.env.NODE_ENV === 'development') {
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
-
 
 const installExtensions = async () => {
   if (process.env.NODE_ENV === 'development') {
@@ -96,6 +97,29 @@ app.on('ready', async () => {
         accelerator: 'Command+Q',
         click() {
           app.quit();
+        }
+      }]
+    }, {
+      label: 'File',
+      submenu: [{
+        label: 'Open...',
+        accelerator: 'Command+O',
+        click() {
+          mainWindow.webContents.send('open-file');
+        }
+      }, {
+        type: 'separator'
+      }, {
+        label: 'Save',
+        accelerator: 'Command+S',
+        click() {
+          mainWindow.webContents.send('save-file');
+        }
+      }, {
+        label: 'Save As...',
+        accelerator: 'Shift+Command+S',
+        click() {
+          mainWindow.webContents.send('save-file-as');
         }
       }]
     }, {
@@ -208,7 +232,22 @@ app.on('ready', async () => {
       label: '&File',
       submenu: [{
         label: '&Open',
-        accelerator: 'Ctrl+O'
+        accelerator: 'Ctrl+O',
+        click() {
+          openFile();
+        }
+      }, {
+        label: '&Save',
+        accelerator: 'Ctrl+s',
+        click() {
+          saveFile();
+        }
+      }, {
+        label: 'Save &As',
+        accelerator: 'Ctrl+A',
+        click() {
+          saveFileAs();
+        }
       }, {
         label: '&Close',
         accelerator: 'Ctrl+W',

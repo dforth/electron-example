@@ -2,6 +2,7 @@ export const ADD_TASK = 'ADD_TASK';
 export const REMOVE_TASK = 'REMOVE_TASK';
 export const TOGGLE_TASK = 'TOGGLE_TASK';
 export const COMPLETE_ALL = 'COMPLETE_ALL';
+export const SET_TASKS = 'SET_TASKS';
 
 export function addTask(id, name) {
   return {
@@ -28,5 +29,12 @@ export function toggleTask(id) {
 export function completeAll() {
   return {
     type: COMPLETE_ALL
+  };
+}
+
+export function setTasks(tasks) {
+  return {
+    type: SET_TASKS,
+    tasks: tasks
   };
 }
