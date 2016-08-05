@@ -234,19 +234,19 @@ app.on('ready', async () => {
         label: '&Open',
         accelerator: 'Ctrl+O',
         click() {
-          openFile();
+          mainWindow.webContents.send('open-file');
         }
       }, {
         label: '&Save',
         accelerator: 'Ctrl+s',
         click() {
-          saveFile();
+          mainWindow.webContents.send('save-file');
         }
       }, {
         label: 'Save &As',
         accelerator: 'Ctrl+A',
         click() {
-          saveFileAs();
+          mainWindow.webContents.send('save-file-as');
         }
       }, {
         label: '&Close',
